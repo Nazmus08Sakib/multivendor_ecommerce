@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// clerk Provider
+import {ClerkProvider,} from '@clerk/nextjs'
+
 // Metadata
 export const metadata: Metadata = {
   title: "GoShop",
@@ -32,6 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${interFont.className} ${barlowFont.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -46,5 +50,6 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
